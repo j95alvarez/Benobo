@@ -19,4 +19,11 @@ public class EnemyMovement : MonoBehaviour {
         }
 
 	}
+
+    // If we attack the base, it takes a point of damage
+    void OnCollisionEnter2D(Collision2D coll) {
+        if (coll.gameObject.tag == "Base") {
+            coll.gameObject.GetComponent<DestructibleObject>().hp--;
+        }
+    }
 }
